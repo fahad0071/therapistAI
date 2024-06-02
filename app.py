@@ -11,7 +11,7 @@ from transformers import (
 )
 
 # Update the default configuration for ngrok (save the configuration file to ~/.ngrok2/ngrok.yml)
-conf.get_default().auth_token = '2gNMhbpo8ig9FE8ONVhcKABcrrK_45eTUN3jkKgKf2t8dDLXi'
+conf.get_default().auth_token = 'cr_2hJZ2BeOuFOpe5UqZVqxdYtSfa3'
 
 # Create a Flask application instance
 app = Flask(__name__)
