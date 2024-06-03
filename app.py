@@ -55,6 +55,20 @@ system_message = """You are a helpful and and truthful psychology and psychother
 pipe = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=512)
 
 
+def extract_text_after_inst(input_text):
+    # Define the marker
+    marker = "[/INST]"
+
+    # Find the index of the marker in the input text
+    marker_index = input_text.find(marker)
+
+    # Check if the marker is found
+    if marker_index != -1:
+        # Extract the text after the marker
+        extracted_text = input_text[marker_index + len(marker):].strip()
+        return extracted_text
+    else:
+        return None
 
 @app.route('/')
 def hello_world():
@@ -62,9 +76,9 @@ def hello_world():
 
 @app.route('/get', methods=['GET','POST'])
 def chat():
-     user_input = request.form["msg"] 
-     return str(pipe(f"{system_message} {user_input}")
-)
+     user_input = request.form["msg"]
+     result = pipe(f"{system_message} {user_input}") 
+     return str(pipe(f"{system_message} {user_input}"))
 # Run the Flask application
 if __name__ == '__main__':
     # Open a ngrok tunnel to the HTTP server
