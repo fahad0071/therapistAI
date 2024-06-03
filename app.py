@@ -78,7 +78,7 @@ def hello_world():
 def chat():
      user_input = request.form["msg"]
      result = pipe(f"{system_message} {user_input}") 
-     return str(pipe(f"{system_message} {user_input}"))
+     return str(extract_text_after_inst(result[0]['generated_text']))
 # Run the Flask application
 if __name__ == '__main__':
     # Open a ngrok tunnel to the HTTP server
