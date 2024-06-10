@@ -126,7 +126,7 @@ Specific Instructions
 
 # prompt = f"[INST] <>{system_message}<>{user_input} [/INST]"
 
-pipe = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=512)
+pipe = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=1024)
 
 
 def extract_text_after_inst(input_text):
