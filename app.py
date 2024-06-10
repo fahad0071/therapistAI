@@ -51,7 +51,7 @@ system_message = """You are a helpful and and truthful psychology and psychother
                   
 # prompt = f"[INST] <>{system_message}<>{user_input} [/INST]"
 
-pipe = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=1024)
+pipe = pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_length=512)
 
 
 def extract_text_after_inst(input_text):
